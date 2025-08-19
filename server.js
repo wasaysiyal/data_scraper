@@ -18,10 +18,10 @@ async function connectToMongoDB(connectionString) {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
-        console.log('Connected to MongoDB');
+        console.log('✅ Connected to MongoDB');
         return true;
     } catch (error) {
-        console.error('MongoDB connection error:', error);
+        console.error('❌ MongoDB connection error:', error);
         throw error;
     }
 }
@@ -68,7 +68,7 @@ app.post('/api/save-to-mongodb', async (req, res) => {
         });
         
     } catch (error) {
-        console.error('Error saving to MongoDB:', error);
+        console.error('❌ Error saving to MongoDB:', error);
         res.status(500).json({
             success: false,
             message: 'Error saving to MongoDB',
@@ -94,8 +94,8 @@ app.use((error, req, res, next) => {
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-    console.log('MongoDB API endpoints:');
-    console.log(`POST http://localhost:${PORT}/api/save-to-mongodb`);
-    console.log(`GET  http://localhost:${PORT}/api/health`);
+    console.log(`🚀 Server running on port ${PORT}`);
+    console.log('🔗 MongoDB API endpoints:');
+    console.log(`POST /api/save-to-mongodb`);
+    console.log(`GET  /api/health`);
 });
